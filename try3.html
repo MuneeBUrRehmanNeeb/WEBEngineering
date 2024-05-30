@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Hind&family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;1,200&display=swap");
+      @import url("https://fonts.googleapis.com/css2?family=Indie+Flower&family=Orbitron:wght@400;800&family=Shadows+Into+Light&display=swap");
+
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+      body {
+        margin: 20px;
+        background-image: url(pexels-pixabay-373481.jpg);
+        background-size: cover;
+      }
+
+      header {
+        width: 100%;
+        height: 100vh;
+        background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.2)),
+          url(./Wallpaper\ macro\ rain\ drops\ glass.jpeg);
+        background-size: cover;
+        font-family: "Poppins", sans-serif;
+      }
+      nav {
+        width: 100%;
+        height: 100px;
+
+        color: #fff;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+      }
+      .logo {
+        border: 3px solid #00a6ff;
+        color: #00a6ff;
+        border-radius: 8px;
+        font-size: 2rem;
+        padding: 0 10px;
+      }
+
+      .menu a {
+        text-decoration: none;
+        color: #fff;
+        padding: 10px 20px;
+        font-size: 20px;
+      }
+
+      .menu a:hover {
+        border: 1px solid #00a6ff;
+        background: transparent;
+      }
+      .register a {
+        text-decoration: none;
+        color: #fff;
+        padding: 10px 20px;
+        font-size: 20px;
+        border-radius: 8px;
+        background: #00a6ff;
+      }
+      .register a:hover {
+        border: 1px solid #00a6ff;
+        background: transparent;
+      }
+
+      .membership {
+        width: 90%;
+        height: 500px;
+        background-image: linear-gradient(
+            rgba(4, 9, 30, 0.8),
+            rgba(4, 9, 30, 0.9)
+          ),
+          url(images/featureImg.jpg);
+        background-position: center;
+        background-size: contain;
+        margin: auto;
+        border-radius: 28px;
+      }
+
+      .m-content {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 30px;
+      }
+
+      .m-content h1 {
+        color: #fff;
+        font-size: 28px;
+        margin-bottom: 20px;
+        font-family: Indie Flower;
+      }
+
+      .m-content .search-container {
+        background-color: #ffffff;
+        width: 350px;
+        padding: 10px;
+        border-radius: 28px;
+        display: flex;
+        justify-content: space-evenly;
+      }
+
+      .m-content .search-container input {
+        border: none;
+        outline: none;
+        font-size: 17px;
+        padding: 2px;
+        color: #000;
+      }
+
+      .m-content .search-container button {
+        border: none;
+        padding: 7px 20px;
+        color: #fff;
+        font-size: 17px;
+        background-color: lightslategrey;
+        border-radius: 28px;
+        width: 100px;
+        cursor: pointer;
+      }
+      #Png img {
+        position: absolute;
+        width: 200px;
+        top: 50%;
+        right: 75%;
+      }
+      #Png2 img {
+        position: absolute;
+        width: 250px;
+        top: 45%;
+        left: 75%;
+      }
+
+      @media (max-width: 756px) {
+        .m-content h1 {
+          font-size: 19px;
+        }
+      }
+
+      .result {
+        font-family: Orbitron;
+        margin: 10px;
+        border-radius: 10px;
+        /* box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1); */
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .seconD {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .additional-weather-box {
+        background-color: rgba(4, 9, 30, 0.9);
+        font-family: Poppins;
+        width: 23%;
+        height: 250px;
+        margin: 10px;
+        border-radius: 10px;
+        box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+        padding: 10px;
+        opacity: 0;
+        transition: opacity 0.5s ease-in-out;
+        justify-content: center;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+      .picA {
+        background-image: linear-gradient(
+            rgba(4, 9, 30, 0.2),
+            rgba(4, 9, 30, 0.2)
+          ),
+          url(./8d1e11b6fbd84bea73d35ba5e06e2ce4.jpg);
+        background-size: cover;
+        background-position: center;
+      }
+      .picB {
+        background-image: url(./London.jpeg);
+        background-size: cover;
+      }
+      .picC {
+        background-image: url(./Blue\ Hour\ at\ Monument.jpeg);
+        background-size: cover;
+      }
+      .picD {
+        background-image: url(./Visit\ India\ Gate.jpeg);
+        background-size: cover;
+        background-position: center;
+      }
+
+      .fade-in {
+        opacity: 1;
+      }
+
+      /* live Stream */
+      .LiveStream {
+        position: relative;
+        width: 95%;
+        height: 560px;
+        background-image: linear-gradient(
+            rgba(4, 9, 30, 0.8),
+            rgba(4, 9, 30, 0.9)
+          ),
+          url(images/featureImg.jpg);
+        background-position: center;
+        background-size: contain;
+        margin: auto;
+        border-radius: 28px;
+        font-family: Orbitron;
+      }
+      .LiveStream iframe {
+        position: absolute;
+        left: 4%;
+        top: 6%;
+        width: 60%;
+        height: 500px;
+        border: none;
+        border-radius: 15px;
+        box-shadow: 0 4px 8px rgba(1, 141, 255, 0.9);
+        overflow: hidden;
+      }
+      .container {
+        position: absolute;
+        top: 30%;
+        left: 70%;
+        /* width: 20%; */
+        display: inline-block;
+      }
+      .typed-out {
+        overflow: hidden;
+
+        border-right: 0.15em solid orange;
+        white-space: nowrap;
+        animation: typing 4s forwards;
+        font-size: 1.7rem;
+        width: 0;
+      }
+      @keyframes typing {
+        from {
+          width: 0;
+        }
+        to {
+          width: 100%;
+        }
+      }
+
+      #giffy img {
+        position: absolute;
+        width: 300px;
+        top: 45%;
+        left: 70%;
+      }
+
+      /*---- contact ---*/
+
+      .contact-row {
+        width: 67%;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 40px;
+        text-align: justify;
+      }
+
+      .contact-row .contact-col table {
+        width: 550px;
+      }
+
+      .contact-row .contact-col input,
+      .contact-row .contact-col textarea {
+        width: 100%;
+        padding: 9px;
+        margin-bottom: 10px;
+        font-size: 16px;
+        outline: none;
+      }
+
+      .contact-row .contact-col .send-btn {
+        padding: 9px 60px;
+        margin-top: 30px;
+        background: #f38609;
+        border: 1px solid #f38609;
+        color: #ffffff;
+        font-size: 16px;
+        cursor: pointer;
+        transition: 0.42s;
+      }
+
+      .contact-row .contact-col .send-btn:hover {
+        background-color: #3ba2e6;
+        border: 1px solid #3ba2e6;
+      }
+
+      .contact-row .contact-col .contact-details {
+        display: flex;
+        align-items: center;
+        margin-bottom: 30px;
+      }
+
+      .contact-row .contact-col .contact-details .fa {
+        font-size: 30px;
+        margin-right: 10px;
+      }
+
+      .contact-row .contact-col .contact-details h4 {
+        font-size: 18px;
+        color: #000;
+        line-height: 20px;
+        padding-top: 15px;
+      }
+    </style>
+    <title>Weather App</title>
+  </head>
+  <body>
+    <nav>
+      <div class="logo">
+        <h3>NeeB.</h3>
+      </div>
+
+      <div class="menu">
+        <a href="#">Home</a>
+
+        <a href="#">Explore</a>
+        <a href="#">News</a>
+      </div>
+      <div class="register">
+        <a href="#">Register</a>
+      </div>
+    </nav>
+
+    <section class="membership">
+      <div class="m-content">
+        <!-- Png Image here -->
+        <div id="Png">
+          <img src="./pngwing.com (11).png" alt="" />
+        </div>
+        <div id="Png2">
+          <img src="./pngwing.com (9).png" alt="" />
+        </div>
+
+        <h1 class="m-h1">
+          Unlock the city's weather secrets! <br />
+          Enter, explore, and stay ahead with a glance at your day
+        </h1>
+        <div class="result" id="searchedCity">
+          <!-- New weather box for searched city -->
+          <h2 id="temperature-searchedCity"></h2>
+          <p id="condition-searchedCity"></p>
+          <img
+            id="weather-icon-searchedCity"
+            alt=""
+            src="./pngwing.com (6).png"
+            style="width: 150px; height: 150px"
+          />
+          <p id="location-searchedCity"></p>
+        </div>
+        <div class="search-container">
+          <input
+            type="text"
+            id="searchInput"
+            class="search-input"
+            placeholder="Enter city"
+          />
+          <button onclick="searchWeather()" class="search-button">
+            Search
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <br />
+    <br />
+
+    <section class="seconD">
+      <div class="additional-weather-box fade-in picA" id="city1">
+        <h2 id="temperature-city1"></h2>
+        <h5 id="condition-city1"></h5>
+        <img id="weather-icon-city1" alt="" />
+        <h5 id="location-city1"></h5>
+      </div>
+      <div class="additional-weather-box fade-in picB" id="city2">
+        <h2 id="temperature-city2"></h2>
+        <h5 id="condition-city2"></h5>
+        <img id="weather-icon-city2" alt="" />
+        <h5 id="location-city2"></h5>
+      </div>
+      <div class="additional-weather-box fade-in picC" id="city3">
+        <h2 id="temperature-city3"></h2>
+        <h5 id="condition-city3"></h5>
+        <img id="weather-icon-city3" alt="" />
+        <h5 id="location-city3"></h5>
+      </div>
+      <div class="additional-weather-box fade-in picD" id="city4">
+        <h2 id="temperature-city4"></h2>
+        <h5 id="condition-city4"></h5>
+        <img id="weather-icon-city4" alt="" />
+        <h5 id="location-city4"></h5>
+      </div>
+    </section>
+
+    <br /><br />
+
+    <section class="LiveStream">
+      <iframe
+        width="100%"
+        height="550"
+        src="https://www.youtube.com/embed/iesPl7zRbVY?si=CVpsgui4SWB9SSsX&autoplay=1&controls=0&mute=1"
+        title="YouTube video player"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen
+      ></iframe>
+
+      <div class="container">
+        <div class="typed-out">
+          Unleashing Weather <br />
+          Mysteries. &#128521;
+        </div>
+      </div>
+      <div id="giffy">
+        <img src="./giphy (1).gif" alt="" />
+      </div>
+    </section>
+
+    <!----contact ------>
+    <section id="contact">
+      <h1>Our Contact</h1>
+      <div class="contact-row">
+        <div class="contact-col">
+          <table>
+            <tr>
+              <td colspan="2">
+                <textarea cols="30" placeholder="Enter Message"></textarea>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <input type="text" placeholder="Enter your name" />
+              </td>
+              <td>
+                <input type="text" placeholder="Email" />
+              </td>
+            </tr>
+            <tr>
+              <td colspan="2">
+                <input type="text" placeholder="Enter Subject" />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <button class="send-btn">SEND</button>
+              </td>
+            </tr>
+          </table>
+        </div>
+
+        <div class="contact-col">
+          <div class="contact-details">
+            <i class="fa fa-home"></i>
+
+            <div class="contact-address">
+              <h4>Islamabad , Pakistan</h4>
+              <span>ZERO POINT, G-8/4</span>
+            </div>
+          </div>
+
+          <div class="contact-details">
+            <i class="fa fa-phone"></i>
+            <div class="contact-address">
+              <h4>05122345566</h4>
+              <span>MANAGER</span>
+            </div>
+          </div>
+
+          <div class="contact-details">
+            <i class="fa fa-envelope"></i>
+
+            <div class="contact-address">
+              <h4>abc@gmail.com</h4>
+              <span>Send us your query anytime!</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      updateWeatherForCity("city1", "New York");
+      updateWeatherForCity("city2", "London");
+      updateWeatherForCity("city3", "Islamabad");
+      updateWeatherForCity("city4", "New Delhi");
+      // Function to Search Weather For a User Entered city
+      function searchWeather() {
+        const searchInput = document.getElementById("searchInput");
+        const city = searchInput.value;
+
+        if (city.trim() !== "") {
+          updateWeatherForCity("searchedCity", city);
+        }
+      }
+
+      // Function to update weather for a specific city
+      function updateWeatherForCity(cityId, location) {
+        fetch(
+          `https://api.weatherapi.com/v1/current.json?key=c07b505dac8943168b7123035231012&q=${location}&aqi=no`
+        )
+          .then((res) => res.json())
+          .then((data) => displayWeatherForCity(cityId, data))
+          .catch((error) =>
+            console.error("Error fetching weather data:", error)
+          );
+      }
+
+      function displayWeatherForCity(cityId, data) {
+        const weatherBox = document.getElementById(cityId);
+        const temperatureElement = document.getElementById(
+          `temperature-${cityId}`
+        );
+        const conditionElement = document.getElementById(`condition-${cityId}`);
+        const locationElement = document.getElementById(`location-${cityId}`);
+        const weatherIconElement = document.getElementById(
+          `weather-icon-${cityId}`
+        );
+
+        const temperature = data.current.temp_c;
+        const condition = data.current.condition.text;
+        const location = `${data.location.name}, ${data.location.country}`;
+        const weatherIconCode = data.current.condition.icon;
+
+        weatherBox.classList.remove("fade-in");
+        setTimeout(() => {
+          locationElement.textContent = `${location}`;
+          weatherIconElement.src = `https:${weatherIconCode}`;
+          conditionElement.textContent = `${condition}`;
+          temperatureElement.textContent = `Temperature: ${temperature}°C`;
+          weatherBox.classList.add("fade-in");
+        }, 200);
+      }
+
+      setInterval(function () {
+        console.log("updating the weather....");
+        updateWeatherForCity("city1", "New York");
+        updateWeatherForCity("city2", "London");
+        updateWeatherForCity("city3", "Islamabad");
+        updateWeatherForCity("city4", "New Delhi");
+      }, 10000);
+    </script>
+  </body>
+</html>

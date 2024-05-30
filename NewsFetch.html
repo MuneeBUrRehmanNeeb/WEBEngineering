@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        background-color: black;
+      }
+
+      .newss {
+        margin: 100px 0px;
+        color: blanchedalmond;
+        margin: 10px auto;
+        width: 90%;
+        border: none;
+        border-radius: 15px;
+        box-shadow: 0 14px 18px rgba(1, 141, 255, 0.7);
+        padding: 25px;
+      }
+
+      #news-container {
+        margin: 0;
+      }
+
+      #news-container h1 {
+        text-align: left;
+        margin-bottom: 10px;
+      }
+      /* ul {
+        list-style-type: none;
+      } */
+    </style>
+    <title>News</title>
+  </head>
+  <body>
+    <section class="newss">
+      <h1>News</h1>
+      <br>
+      <div id="news-container"></div>
+    </section>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const newsApiKey = "f3e15c4338bf450baf9fe062ea3df1f5";
+        const newsUrl = `https://newsapi.org/v2/top-headlines?q=weather&apiKey=${newsApiKey}`;
+
+        fetch(newsUrl)
+          .then((response) => response.json())
+          .then((newsData) => {
+            displayNews(newsData.articles);
+          })
+          .catch((error) => {
+            console.error("Error fetching news data:", error);
+          });
+      });
+
+      function displayNews(news) {
+        const container = document.getElementById("news-container");
+        container.innerHTML = "";
+
+        const newsList = document.createElement("ul");
+        news.forEach((article) => {
+          //Result ko display krny ky liye div bna rha hu
+          const listItem = document.createElement("li");
+
+          const contentDiv = document.createElement("div");
+
+          const titleHeading = document.createElement("h2");
+          titleHeading.textContent = article.title;
+
+          contentDiv.appendChild(titleHeading);
+
+          // Append the content div in to the list item
+          listItem.appendChild(contentDiv);
+
+          newsList.appendChild(listItem);
+        });
+
+        container.appendChild(newsList);
+      }
+    </script>
+  </body>
+</html>
